@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Admin</title>
+</head>
+<body>
+  <header>
+    <a class="logo">Курсовая</a>
+    <nav id="nav">
+      <p><a href="/">Заказы</a></p>
+      <p><a href="/editors">Редакторы</a></p>
+      <p><a href="/loginPage">Войти</a></p>
+      <p><a href="/register">Регистрация</a></p>
+    </nav>
+  </header>
+  
+  <main>
+    <h1>Если в вашу компанию устроился новый редактор добавьте его с помощью формы ниже</h1>
+    {{!-- username: req.body.username,
+    password: req.body.password,
+    name: req.body.name --}}
+    <form action="/createEditorAndJournal" method="POST">
+      <label for="username">Имя</label>
+      <input type="text" name="username" id="username" placeholder="Александр"> 
+      <label for="journal_model">Название журнала</label>
+      <input type="text" name="journal_model" id="journal_model" placeholder="Название журнала"> 
+      <label for="journal_number">Номер журнала</label>
+      <input type="text" name="journal_number" id="journal_number" placeholder="Номер журнала"> 
+      <input type="submit" value="Добавить">
+    </form>
+    
+    <h2>Изменить данные какого-то из редакторов</h2>
+    
+    <form action="/updateEditorAndJournal" method="POST">
+      <select name="id" id="editor_id"></select>
+      <label for="username">Имя</label>
+      <input type="text" name="username" id="username" placeholder="Александр"> 
+      <label for="journal_model">Название журнала</label>
+      <input type="text" name="journal_model" id="journal_model" placeholder="Название журнала"> 
+      <label for="journal_number">Номер журнала</label>
+      <input type="text" name="journal_number" id="journal_number" placeholder="Номер журнала"> 
+      <input type="submit" value="Добавить">
+    </form>
+    
+    <h2>Удалить редактора</h2>
+    <form action="/deleteEditorAndJournal" method="POST">
+      <select name="id" id="editor_id_delete"></select>
+      <input type="submit" value="Удалить">
+    </form>
+    
+    <h2>Список редакторов</h2>
+    
+    <table id="orders-table">
+      <tr>
+        <th>Редактор</th>
+        <th>Журнал</th>
+        <th>Занят</th>
+      </tr>
+    </table>
+    
+  </main>
+  
+  <script src="js/script.js"></script>
+  <script src="/js/editors.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
